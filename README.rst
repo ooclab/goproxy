@@ -72,3 +72,54 @@ SOCKS
 
 - qtunnel
 - ssh
+- socat
+
+
+常用工具设置代理
+======================
+
+git
+----------
+
+http(s) 协议
+~~~~~~~~~~~~~~~~~~~~~~
+
+参考:
+
+- `Getting git to work with a proxy server <http://stackoverflow.com/questions/783811/getting-git-to-work-with-a-proxy-server>`_
+
+如果 git repo 地址开头为 http 或 https , 如::
+
+  git clone https://github.com/ooclab/goproxy
+
+配置全局设置::
+
+  git config --global http.proxy http://proxyuser:proxypwd@proxy.server.com:8080
+  git config --global https.proxy https://proxyuser:proxypwd@proxy.server.com:8080
+
+取消代理设置::
+
+  git config --global --unset http.proxy
+  git config --global --unset https.proxy
+
+git 协议
+~~~~~~~~~~~~~~~~~~
+
+参考:
+
+- `How to Use the Git Protocol Through a HTTP CONNECT Proxy <http://www.emilsit.net/blog/archives/how-to-use-the-git-protocol-through-a-http-connect-proxy/>`_
+
+http 代理::
+
+  exec socat STDIO PROXY:$_proxy:$1:$2,proxyport=$_proxyport
+
+socks 代理::
+
+  exec socat STDIO SOCKS4:$_proxy:$1:$2,socksport=$_proxyport
+
+tips
+~~~~~~
+
+查看 git config 设置::
+
+  git config -l
