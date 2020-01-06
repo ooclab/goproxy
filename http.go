@@ -6,7 +6,7 @@ import (
 	"net/http"
 
 	"github.com/elazarl/goproxy"
-	"h12.me/socks"
+	"h12.io/socks"
 )
 
 // 启动本地 http(s) 代理
