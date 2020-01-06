@@ -44,11 +44,11 @@ HTTP
 
 启动纯 http(s) 代理::
 
-  goproxy http -l 127.0.0.1:9000
+  goproxy http --listen 127.0.0.1:9000
 
 启动 http(s) 代理，但使用一个 socks v5 服务作为后端::
 
-  goproxy http -l 127.0.0.1:9000 -b 127.0.0.1:1080
+  goproxy http --listen 127.0.0.1:9000 --backend 127.0.0.1:1080
 
 测试 HTTP 代理::
 
@@ -60,7 +60,7 @@ SOCKS
 
 启动纯 socks v5 代理::
 
-  goproxy socks -l 127.0.0.1:9000
+  goproxy socks --listen 127.0.0.1:9000
 
 测试 SOCKS 代理::
 
