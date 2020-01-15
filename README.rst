@@ -17,6 +17,20 @@ goproxy - 简单的代理小工具
 - socks v5 转 http(s) 代理
 
 
+快速使用
+=========
+
+使用 Docker 运行服务：
+
+```
+docker run --rm -it -d -p 9000:8000 ooclab/goproxy:v1.0.0
+```
+
+测试：
+
+```
+curl -s --socks5 127.0.0.1:9000 http://httpbin.org/ip
+```
 
 编译
 ===========
